@@ -5,6 +5,9 @@ import java.util.List;
 
 public class RomanNumeralTest {
 
+    /* ----------
+    ENDINGS FROM 1 TO 9
+     ---------- */
     //Ending with 1 - I
     @Property
     boolean every_number_endingWith1_end_with_I(@ForAll("endingWith1") int i) {
@@ -95,16 +98,6 @@ public class RomanNumeralTest {
         return endingWith(9);
     }
 
-    //Ending with 10 - X
-    @Property
-    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) {
-        return RomanNumeraUtils.toRomanNumeral(i).endsWith("X");
-    }
-    @Provide
-    Arbitrary<Integer> endingWith10() throws Exception {
-        return Arbitraries.of(10,20,30,60,70,80,110);
-    }
-
     /**
      * Helper method to generate all numbers from 1 -> 10x ending with 'number'
      * @param number is in bound 0 < x < 10
@@ -117,4 +110,19 @@ public class RomanNumeralTest {
         }
         return Arbitraries.integers().between(number, 100 + number).filter(i -> i % 10 == number);
     }
+
+
+    /* ----------
+   ENDINGS WITH 10
+    ---------- */
+    //Ending with 10 - X
+    @Property
+    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) {
+        return RomanNumeraUtils.toRomanNumeral(i).endsWith("X");
+    }
+    @Provide
+    Arbitrary<Integer> endingWith10() throws Exception {
+        return Arbitraries.of(10,20,30,60,70,80,110);
+    }
+
 }
