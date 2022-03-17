@@ -8,7 +8,7 @@ public class RomanNumeralTestsLToM {
     ---------- */
     //Ending with 10 - X
     @Property
-    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) {
+    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("X");
     }
     @Provide
@@ -21,7 +21,7 @@ public class RomanNumeralTestsLToM {
        ---------- */
     //Ending with 50 - L
     @Property
-    boolean every_number_endingWith50_end_with_L(@ForAll("endingWith50") int i) {
+    boolean every_number_endingWith50_end_with_L(@ForAll("endingWith50") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("L");
     }
     @Provide
@@ -34,7 +34,7 @@ public class RomanNumeralTestsLToM {
        ---------- */
     //Ending with 100 - C
     @Property
-    boolean every_number_endingWith100_end_with_C(@ForAll("endingWith100") int i) {
+    boolean every_number_endingWith100_end_with_C(@ForAll("endingWith100") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("C");
     }
     @Provide
@@ -47,7 +47,7 @@ public class RomanNumeralTestsLToM {
            ---------- */
     //Ending with 500 - D
     @Property
-    boolean every_number_endingWith500_end_with_C(@ForAll("endingWith500") int i) {
+    boolean every_number_endingWith500_end_with_C(@ForAll("endingWith500") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("D");
     }
     @Provide
@@ -60,7 +60,7 @@ public class RomanNumeralTestsLToM {
            ---------- */
     //Ending with 1000 - M
     @Property
-    boolean every_number_endingWith1000_end_with_C(@ForAll("endingWith1000") int i) {
+    boolean every_number_endingWith1000_end_with_C(@ForAll("endingWith1000") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("M");
     }
     @Provide
@@ -73,7 +73,7 @@ public class RomanNumeralTestsLToM {
            ---------- */
     //Ending with 40 - XL
     @Property
-    boolean every_number_endingWith40_end_with_XL(@ForAll("endingWith40") int i) {
+    boolean every_number_endingWith40_end_with_XL(@ForAll("endingWith40") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("XL");
     }
     @Provide
@@ -86,7 +86,7 @@ public class RomanNumeralTestsLToM {
            ---------- */
     //Ending with 90 - XC
     @Property
-    boolean every_number_endingWith90_end_with_XC(@ForAll("endingWith90") int i) {
+    boolean every_number_endingWith90_end_with_XC(@ForAll("endingWith90") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("XC");
     }
     @Provide
@@ -99,7 +99,7 @@ public class RomanNumeralTestsLToM {
            ---------- */
     //Ending with 40 - CD
     @Property
-    boolean every_number_endingWith400_end_with_CD(@ForAll("endingWith400") int i) {
+    boolean every_number_endingWith400_end_with_CD(@ForAll("endingWith400") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("CD");
     }
     @Provide
@@ -112,7 +112,7 @@ public class RomanNumeralTestsLToM {
            ---------- */
     //Ending with 40 - CM
     @Property
-    boolean every_number_endingWith900_end_with_CM(@ForAll("endingWith900") int i) {
+    boolean every_number_endingWith900_end_with_CM(@ForAll("endingWith900") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("CM");
     }
     @Provide
