@@ -3,7 +3,7 @@ import net.jqwik.api.*;
 import org.assertj.core.api.Assert;
 import org.opentest4j.TestAbortedException;
 
-public class RomanNumeralTest {
+public class RomanNumeralTestsIToIX {
 
     /* ----------
     ENDINGS FROM 1 TO 9
