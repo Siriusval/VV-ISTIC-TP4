@@ -3,7 +3,7 @@ import net.jqwik.api.*;
 
 import java.util.List;
 
-public class RomanNumeralTest {
+public class RomanNumeralTestsIToIX {
 
     /* ----------
     ENDINGS FROM 1 TO 9
@@ -110,19 +110,4 @@ public class RomanNumeralTest {
         }
         return Arbitraries.integers().between(number, 100 + number).filter(i -> i % 10 == number);
     }
-
-
-    /* ----------
-   ENDINGS WITH 10
-    ---------- */
-    //Ending with 10 - X
-    @Property
-    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) {
-        return RomanNumeraUtils.toRomanNumeral(i).endsWith("X");
-    }
-    @Provide
-    Arbitrary<Integer> endingWith10() throws Exception {
-        return Arbitraries.of(10,20,30,60,70,80,110);
-    }
-
 }
