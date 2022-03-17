@@ -68,4 +68,56 @@ public class RomanNumeralTestsLToM {
         return Arbitraries.of(1000,2000,3000);
     }
 
+    /* ----------
+       ENDINGS WITH 40
+           ---------- */
+    //Ending with 40 - XL
+    @Property
+    boolean every_number_endingWith40_end_with_XL(@ForAll("endingWith40") int i) {
+        return RomanNumeraUtils.toRomanNumeral(i).endsWith("XL");
+    }
+    @Provide
+    Arbitrary<Integer> endingWith40() throws Exception {
+        return Arbitraries.of(40,140,240,340,440,540,640,740,840,940);
+    }
+
+    /* ----------
+       ENDINGS WITH 90
+           ---------- */
+    //Ending with 90 - XC
+    @Property
+    boolean every_number_endingWith90_end_with_XC(@ForAll("endingWith90") int i) {
+        return RomanNumeraUtils.toRomanNumeral(i).endsWith("XC");
+    }
+    @Provide
+    Arbitrary<Integer> endingWith90() throws Exception {
+        return Arbitraries.of(90,190,290,390,490,590,690,790,890,990);
+    }
+
+    /* ----------
+       ENDINGS WITH 400
+           ---------- */
+    //Ending with 40 - CD
+    @Property
+    boolean every_number_endingWith400_end_with_CD(@ForAll("endingWith400") int i) {
+        return RomanNumeraUtils.toRomanNumeral(i).endsWith("CD");
+    }
+    @Provide
+    Arbitrary<Integer> endingWith400() throws Exception {
+        return Arbitraries.of(400,1400,2400,3400);
+    }
+
+    /* ----------
+       ENDINGS WITH 900
+           ---------- */
+    //Ending with 40 - CM
+    @Property
+    boolean every_number_endingWith900_end_with_CM(@ForAll("endingWith900") int i) {
+        return RomanNumeraUtils.toRomanNumeral(i).endsWith("CM");
+    }
+    @Provide
+    Arbitrary<Integer> endingWith900() throws Exception {
+        return Arbitraries.of(900,1900,2900,3900);
+    }
+
 }
