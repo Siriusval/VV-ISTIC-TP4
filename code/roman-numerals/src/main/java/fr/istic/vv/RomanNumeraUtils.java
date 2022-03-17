@@ -44,8 +44,6 @@ public class RomanNumeraUtils {
      * @return the value as int
      */
     public static int parseRomanNumeral(String numeral) {
-
-
         //Init result
         int result=0;
 
@@ -74,7 +72,11 @@ public class RomanNumeraUtils {
      * @param number, int number to convert
      * @return roman numeral as string
      */
-    public static String toRomanNumeral(int number) {
+    public static String toRomanNumeral(int number) throws OutOfBoundException {
+        if(number <0 || number >= 4000){
+            throw new OutOfBoundException();
+        }
+
         //Declare each step
         int[] values = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
         String[] romanLiterals = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};

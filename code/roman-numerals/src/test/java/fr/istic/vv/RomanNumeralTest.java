@@ -1,7 +1,7 @@
 package fr.istic.vv;
 import net.jqwik.api.*;
-
-import java.util.List;
+import org.assertj.core.api.Assert;
+import org.opentest4j.TestAbortedException;
 
 public class RomanNumeralTest {
 
@@ -10,7 +10,7 @@ public class RomanNumeralTest {
      ---------- */
     //Ending with 1 - I
     @Property
-    boolean every_number_endingWith1_end_with_I(@ForAll("endingWith1") int i) {
+    boolean every_number_endingWith1_end_with_I(@ForAll("endingWith1") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("I");
     }
     @Provide
@@ -20,7 +20,7 @@ public class RomanNumeralTest {
 
     //Ending with 2 - II
     @Property
-    boolean every_number_endingWith2_end_with_II(@ForAll("endingWith2") int i) {
+    boolean every_number_endingWith2_end_with_II(@ForAll("endingWith2") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("II");
     }
     @Provide
@@ -30,7 +30,7 @@ public class RomanNumeralTest {
 
     //Ending with 3 - III
     @Property
-    boolean every_number_endingWith3_end_with_III(@ForAll("endingWith3") int i) {
+    boolean every_number_endingWith3_end_with_III(@ForAll("endingWith3") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("III");
     }
     @Provide
@@ -40,7 +40,7 @@ public class RomanNumeralTest {
 
     //Ending with 4 - IV
     @Property
-    boolean every_number_endingWith4_end_with_IV(@ForAll("endingWith4") int i) {
+    boolean every_number_endingWith4_end_with_IV(@ForAll("endingWith4") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("IV");
     }
     @Provide
@@ -50,7 +50,7 @@ public class RomanNumeralTest {
 
     //Ending with 5 - V
     @Property
-    boolean every_number_endingWith5_end_with_V(@ForAll("endingWith5") int i) {
+    boolean every_number_endingWith5_end_with_V(@ForAll("endingWith5") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("V");
     }
     @Provide
@@ -60,7 +60,7 @@ public class RomanNumeralTest {
 
     //Ending with 6 - VI
     @Property
-    boolean every_number_endingWith6_end_with_VI(@ForAll("endingWith6") int i) {
+    boolean every_number_endingWith6_end_with_VI(@ForAll("endingWith6") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("VI");
     }
     @Provide
@@ -70,7 +70,7 @@ public class RomanNumeralTest {
 
     //Ending with 7 - VII
     @Property
-    boolean every_number_endingWith7_end_with_VII(@ForAll("endingWith7") int i) {
+    boolean every_number_endingWith7_end_with_VII(@ForAll("endingWith7") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("VII");
     }
     @Provide
@@ -80,7 +80,7 @@ public class RomanNumeralTest {
 
     //Ending with 8 - VIII
     @Property
-    boolean every_number_endingWith8_end_with_VIII(@ForAll("endingWith8") int i) {
+    boolean every_number_endingWith8_end_with_VIII(@ForAll("endingWith8") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("VIII");
     }
     @Provide
@@ -90,7 +90,7 @@ public class RomanNumeralTest {
 
     //Ending with 9 - IX
     @Property
-    boolean every_number_endingWith9_end_with_IX(@ForAll("endingWith9") int i) {
+    boolean every_number_endingWith9_end_with_IX(@ForAll("endingWith9") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("IX");
     }
     @Provide
@@ -106,7 +106,7 @@ public class RomanNumeralTest {
      */
     private Arbitrary<Integer> endingWith(int number) throws Exception {
         if(number <= 0 || number > 9){
-            throw new Exception("Out of bound");
+            throw new OutOfBoundException();
         }
         return Arbitraries.integers().between(number, 100 + number).filter(i -> i % 10 == number);
     }
@@ -117,12 +117,14 @@ public class RomanNumeralTest {
     ---------- */
     //Ending with 10 - X
     @Property
-    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) {
+    boolean every_number_endingWith10_end_with_X(@ForAll("endingWith10") int i) throws OutOfBoundException {
         return RomanNumeraUtils.toRomanNumeral(i).endsWith("X");
     }
     @Provide
     Arbitrary<Integer> endingWith10() throws Exception {
         return Arbitraries.of(10,20,30,60,70,80,110);
     }
+
+
 
 }
