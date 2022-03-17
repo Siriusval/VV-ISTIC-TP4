@@ -8,6 +8,8 @@ public class ParseRomanNumeralTests1to4000 {
     boolean every_number_from_one_to_four_thousands(@ForAll("oneTo4000") int i) throws OutOfBoundException {
         String romanNumeral = RomanNumeraUtils.toRomanNumeral(i);
         Integer backToInt = RomanNumeraUtils.parseRomanNumeral(romanNumeral);
+        
+        //System.out.println(i+"\t-> "+romanNumeral+"\t->"+backToInt);
         return backToInt.equals(i);
     }
     @Provide
