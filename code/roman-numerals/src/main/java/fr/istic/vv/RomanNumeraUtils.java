@@ -13,7 +13,7 @@ public class RomanNumeraUtils {
     /**
      * Constructor
      */
-    public RomanNumeraUtils() {
+    static {
         NUMBERS_MAP = new HashMap<>();
         NUMBERS_MAP.put('I',1);
         NUMBERS_MAP.put('V',5);
